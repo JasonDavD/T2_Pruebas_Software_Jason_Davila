@@ -8,11 +8,13 @@ import net.serenitybdd.screenplay.playwright.questions.Text;
 public class TheProductPrice {
 
     public static Question<String> ofFirstItem() {
-        return Text.of(Target.the("First product price")
-                .locatedBy(InventoryPage.FIRST_ITEM_PRICE));
+        return Question.about("the first product price")
+                .answeredBy(actor -> Text.of(Target.the("First product price")
+                        .locatedBy(InventoryPage.FIRST_ITEM_PRICE)).answeredBy(actor));
     }
     public static Question<String> ofLasItem() {
-        return Text.of(Target.the("Last product price")
-                .locatedBy(InventoryPage.LAST_ITEM_PRICE));
+        return Question.about("the last product price")
+                .answeredBy(actor -> Text.of(Target.the("Last product price")
+                        .locatedBy(InventoryPage.LAST_ITEM_PRICE)).answeredBy(actor));
     }
 }

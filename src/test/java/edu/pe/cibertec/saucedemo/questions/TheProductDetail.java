@@ -8,12 +8,14 @@ import net.serenitybdd.screenplay.playwright.questions.Visibility;
 
 public class TheProductDetail {
     public static Question<String> name() {
-        return Text.of(Target.the("Product name")
-                .locatedBy(ProductDetailPage.PRODUCT_NAME));
+        return Question.about("the product name")
+                .answeredBy(actor -> Text.of(Target.the("Product name")
+                        .locatedBy(ProductDetailPage.PRODUCT_NAME)).answeredBy(actor));
     }
     public static Question<String> price() {
-        return Text.of(Target.the("Product price")
-                .locatedBy(ProductDetailPage.PRODUCT_PRICE));
+        return Question.about("the product price")
+                .answeredBy(actor -> Text.of(Target.the("Product price")
+                        .locatedBy(ProductDetailPage.PRODUCT_PRICE)).answeredBy(actor));
     }
 
     public static Question<Boolean> addToCartButtonIsVisible() {
